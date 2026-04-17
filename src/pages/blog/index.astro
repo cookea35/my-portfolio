@@ -1,0 +1,39 @@
+---
+import { getCollection } from "astro:content";
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import { siteConfig } from "@/config/site";
+
+const posts = (await getCollection("blog"))
+  .filter((post) => !post.data.draft)
+  .sort((a, b) => b.data.publishedAt.valueOf() - a.data.publishedAt.valueOf());
+---
+
+<BaseLayout title="Blog | Portfolio" description="Engineering notes and development writeups.">
+  {!siteConfig.enableBlog ? (
+    <section class="card">
+      <h1 class="text-2xl font-semibold">Blog is not enabled yet</h1>
+      <p class="mt-3 text-slate-300">
+        The blog collection is configured and ready. Set <code>enableBlog</code> to <code>true</code> in
+        <code>src/config/site.ts</code> when you want this section publicly linked.
+      </p>
+    </section>
+  ) : (
+    <section class="space-y-5">
+      <h1 class="text-3xl font-bold">Blog</h1>
+      {posts.length === 0 ? (
+        <p class="text-slate-300">No published posts yet.</p>
+      ) : (
+        <ul class="grid gap-4">
+          {posts.map((post) => (
+            <li class="card">
+              <a class="text-xl font-semibold" href={`/blog/${post.slug}`}>
+                {post.data.title}
+              </a>
+              <p class="mt-2 text-slate-300">{post.data.excerpt}</p>
+            </li>
+          ))}
+        </ul>
+      )}
+    </section>
+  )}
+</BaseLayout>

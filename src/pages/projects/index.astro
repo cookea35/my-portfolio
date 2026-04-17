@@ -1,0 +1,31 @@
+---
+import { getCollection } from "astro:content";
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import ProjectCard from "@/components/ProjectCard.astro";
+
+const projects = (await getCollection("projects")).sort(
+  (a, b) => b.data.publishedAt.valueOf() - a.data.publishedAt.valueOf()
+);
+---
+
+<BaseLayout title="Projects | Portfolio" description="Selected software projects and engineering case studies.">
+  <section class="space-y-3">
+    <h1 class="text-3xl font-bold">Projects</h1>
+    <p class="max-w-2xl text-slate-300">
+      A curated set of projects covering frontend, backend, and platform engineering work.
+    </p>
+  </section>
+  <section class="mt-8 grid gap-5">
+    {projects.map((project) => (
+      <ProjectCard
+        title={project.data.title}
+        summary={project.data.summary}
+        tech={project.data.tech}
+        href={`/projects/${project.slug}`}
+        githubUrl={project.data.githubUrl}
+        demoUrl={project.data.demoUrl}
+        featured={project.data.featured}
+      />
+    ))}
+  </section>
+</BaseLayout>

@@ -1,0 +1,31 @@
+---
+interface Props {
+  title: string;
+  summary: string;
+  tech: string[];
+  href: string;
+  githubUrl: string;
+  demoUrl?: string;
+  featured?: boolean;
+}
+
+const { title, summary, tech, href, githubUrl, demoUrl, featured = false } = Astro.props;
+---
+
+<article class="card space-y-4">
+  <div class="flex items-start justify-between gap-4">
+    <h3 class="text-xl font-semibold text-slate-100">
+      <a href={href}>{title}</a>
+    </h3>
+    {featured && <span class="rounded-full bg-sky-500/20 px-3 py-1 text-xs font-medium text-sky-300">Featured</span>}
+  </div>
+  <p class="text-sm leading-relaxed text-slate-300">{summary}</p>
+  <ul class="flex flex-wrap gap-2">
+    {tech.map((item) => <li class="rounded-md bg-slate-800 px-2 py-1 text-xs text-slate-300">{item}</li>)}
+  </ul>
+  <div class="flex gap-4 text-sm">
+    <a href={href}>Read more</a>
+    <a href={githubUrl} target="_blank" rel="noreferrer">Repository</a>
+    {demoUrl && <a href={demoUrl} target="_blank" rel="noreferrer">Live demo</a>}
+  </div>
+</article>

@@ -1,0 +1,48 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import { siteConfig } from "@/config/site";
+---
+
+<BaseLayout title={`About | ${siteConfig.name}`} description="Professional summary, core skills, and experience highlights.">
+  <section class="space-y-4">
+    <h1 class="text-3xl font-bold">About</h1>
+    <p class="max-w-3xl text-slate-300">
+      I am a software developer who enjoys shipping product-focused solutions with clean architecture and
+      practical developer tooling. I work across frontend and backend systems, with an emphasis on clarity and
+      long-term maintainability.
+    </p>
+  </section>
+
+  <section class="mt-10 grid gap-6 md:grid-cols-2">
+    <article class="card">
+      <h2 class="text-xl font-semibold">Core skills</h2>
+      <ul class="mt-4 space-y-2 text-slate-300">
+        <li>TypeScript, JavaScript, and modern web frameworks</li>
+        <li>API design, data modeling, and distributed systems basics</li>
+        <li>CI/CD automation, observability, and quality tooling</li>
+      </ul>
+    </article>
+    <article class="card">
+      <h2 class="text-xl font-semibold">Contact</h2>
+      <ul class="mt-4 space-y-2 text-slate-300">
+        <li>Email: <a href={`mailto:${siteConfig.email}`}>{siteConfig.email}</a></li>
+        <li>GitHub: <a href={siteConfig.githubUrl} target="_blank" rel="noreferrer">{siteConfig.githubUrl}</a></li>
+        <li>LinkedIn: <a href={siteConfig.linkedinUrl} target="_blank" rel="noreferrer">{siteConfig.linkedinUrl}</a></li>
+      </ul>
+    </article>
+  </section>
+
+  <section class="mt-10 card">
+    <h2 class="text-xl font-semibold">Experience highlights</h2>
+    <ol class="mt-4 space-y-4 text-slate-300">
+      <li>
+        <p class="font-medium text-slate-200">Senior Software Engineer - Product Platform</p>
+        <p>Led architecture updates that reduced release friction and improved deployment confidence.</p>
+      </li>
+      <li>
+        <p class="font-medium text-slate-200">Full Stack Engineer - SaaS Applications</p>
+        <p>Built customer-facing workflows and internal tools with strong focus on reliability.</p>
+      </li>
+    </ol>
+  </section>
+</BaseLayout>

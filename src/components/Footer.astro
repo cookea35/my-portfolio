@@ -1,0 +1,14 @@
+---
+import { siteConfig } from "@/config/site";
+---
+
+<footer class="border-t border-slate-800 py-8">
+  <div class="container flex flex-col gap-2 text-sm text-slate-400 sm:flex-row sm:items-center sm:justify-between">
+    <p>&copy; {new Date().getFullYear()} {siteConfig.name}</p>
+    <div class="flex gap-4">
+      <a href={siteConfig.githubUrl} target="_blank" rel="noreferrer">GitHub</a>
+      <a href={siteConfig.linkedinUrl} target="_blank" rel="noreferrer">LinkedIn</a>
+      <a href={`mailto:${siteConfig.email}`}>Email</a>
+    </div>
+  </div>
+</footer>
