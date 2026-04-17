@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://your-username.github.io/portfolio-site/sitemap-index.xml
+Sitemap: https://cookea35.github.io/portfolio-site/sitemap-index.xml

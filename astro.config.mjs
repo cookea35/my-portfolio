@@ -2,7 +2,7 @@ import { defineConfig } from "astro/config";
 import sitemap from "@astrojs/sitemap";
 import tailwind from "@astrojs/tailwind";
 
-const SITE_URL = "https://austincooke.github.io";
+const SITE_URL = "https://cookea35.github.io";
 const REPO_NAME = "portfolio-site";
 const isProd = process.env.NODE_ENV === "production";
 

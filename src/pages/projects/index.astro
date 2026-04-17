@@ -2,6 +2,7 @@
 import { getCollection } from "astro:content";
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import ProjectCard from "@/components/ProjectCard.astro";
+import { contentSlug } from "@/lib/contentSlug";
 
 const projects = (await getCollection("projects")).sort(
   (a, b) => b.data.publishedAt.valueOf() - a.data.publishedAt.valueOf()
@@ -21,9 +22,8 @@ const projects = (await getCollection("projects")).sort(
         title={project.data.title}
         summary={project.data.summary}
         tech={project.data.tech}
-        href={`/projects/${project.slug}`}
+        href={`/projects/${contentSlug(project.id)}`}
         githubUrl={project.data.githubUrl}
-        demoUrl={project.data.demoUrl}
         featured={project.data.featured}
       />
     ))}

@@ -1,11 +1,12 @@
 ---
 import { getCollection, render } from "astro:content";
 import BaseLayout from "@/layouts/BaseLayout.astro";
+import { contentSlug } from "@/lib/contentSlug";
 
 export async function getStaticPaths() {
   const projects = await getCollection("projects");
   return projects.map((project) => ({
-    params: { slug: project.slug },
+    params: { slug: contentSlug(project.id) },
     props: { project }
   }));
 }
@@ -27,7 +28,6 @@ const { Content } = await render(project);
       </div>
       <div class="flex gap-4 text-sm">
         <a href={project.data.githubUrl} target="_blank" rel="noreferrer">Repository</a>
-        {project.data.demoUrl && <a href={project.data.demoUrl} target="_blank" rel="noreferrer">Live demo</a>}
       </div>
     </header>
     <div class="max-w-none space-y-4 leading-relaxed text-slate-200">
