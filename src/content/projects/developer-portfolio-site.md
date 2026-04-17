@@ -9,8 +9,7 @@ tech:
   - GitHub Actions
 featured: true
 publishedAt: 2026-04-14
-githubUrl: "https://github.com/your-username/portfolio-site"
-demoUrl: "https://your-username.github.io/portfolio-site"
+githubUrl: "https://github.com/cookea35/my-portfolio"
 ---
 
 This portfolio project focuses on a simple authoring model: each project is maintained as a Markdown file with typed frontmatter. That lets you add or update portfolio entries without editing UI templates.

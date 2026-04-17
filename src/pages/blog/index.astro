@@ -2,6 +2,7 @@
 import { getCollection } from "astro:content";
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import { siteConfig } from "@/config/site";
+import { contentSlug } from "@/lib/contentSlug";
 
 const posts = (await getCollection("blog"))
   .filter((post) => !post.data.draft)
@@ -26,7 +27,7 @@ const posts = (await getCollection("blog"))
         <ul class="grid gap-4">
           {posts.map((post) => (
             <li class="card">
-              <a class="text-xl font-semibold" href={`/blog/${post.slug}`}>
+              <a class="text-xl font-semibold" href={`/blog/${contentSlug(post.id)}`}>
                 {post.data.title}
               </a>
               <p class="mt-2 text-slate-300">{post.data.excerpt}</p>

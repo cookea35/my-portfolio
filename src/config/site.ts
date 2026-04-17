@@ -1,10 +1,10 @@
 export const siteConfig = {
   name: "Austin Cooke",
-  role: "Software Developer",
+  role: "Lead / Senior Software Developer",
   description:
-    "I build reliable full-stack products with a focus on maintainability, performance, and developer experience.",
-  githubUrl: "https://github.com/your-username",
-  linkedinUrl: "https://www.linkedin.com/in/your-profile",
-  email: "you@example.com",
+    "Full-stack engineer and technical lead with 8+ years building cloud web platforms in .NET, React, and TypeScript on Azure and AWS—focused on scalable architecture, reliable delivery, and growing strong teams.",
+  githubUrl: "https://github.com/cookea35",
+  linkedinUrl: "https://www.linkedin.com/in/austin-cooke-033110148/",
+  email: "austin.cooke@gmail.com",
   enableBlog: false
 };

@@ -5,11 +5,10 @@ interface Props {
   tech: string[];
   href: string;
   githubUrl: string;
-  demoUrl?: string;
   featured?: boolean;
 }
 
-const { title, summary, tech, href, githubUrl, demoUrl, featured = false } = Astro.props;
+const { title, summary, tech, href, githubUrl, featured = false } = Astro.props;
 ---
 
 <article class="card space-y-4">
@@ -26,6 +25,5 @@ const { title, summary, tech, href, githubUrl, demoUrl, featured = false } = Ast
   <div class="flex gap-4 text-sm">
     <a href={href}>Read more</a>
     <a href={githubUrl} target="_blank" rel="noreferrer">Repository</a>
-    {demoUrl && <a href={demoUrl} target="_blank" rel="noreferrer">Live demo</a>}
   </div>
 </article>

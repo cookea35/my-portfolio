@@ -44,7 +44,6 @@ Optional fields:
 - `description`
 - `featured`
 - `updatedAt`
-- `demoUrl`
 - `coverImage`
 
 Example:
@@ -57,7 +56,6 @@ tech: ["Astro", "TypeScript"]
 featured: true
 publishedAt: 2026-04-14
 githubUrl: "https://github.com/your-username/my-project"
-demoUrl: "https://example.com"
 ---
 ```
 
