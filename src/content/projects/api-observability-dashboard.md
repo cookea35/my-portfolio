@@ -1,5 +1,6 @@
 ---
 title: "API Observability Dashboard"
+category: "professional"
 summary: "A dashboard for monitoring API latency, error rates, and deployment impact across environments."
 description: "Built to help teams identify regressions quickly by combining request tracing and service health indicators."
 tech:

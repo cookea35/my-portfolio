@@ -1,0 +1,32 @@
+---
+import { getCollection } from "astro:content";
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import ProjectCard from "@/components/ProjectCard.astro";
+import { contentSlug } from "@/lib/contentSlug";
+
+const projects = (await getCollection("projects"))
+  .filter((project) => project.data.category === "personal")
+  .sort((a, b) => b.data.publishedAt.valueOf() - a.data.publishedAt.valueOf());
+---
+
+<BaseLayout title="Personal Projects | Portfolio" description="Personal software projects and experiments.">
+  <section class="space-y-3">
+    <a href="/projects" class="text-sm text-sky-300 hover:underline">← Back to all project categories</a>
+    <h1 class="text-3xl font-bold">Personal Projects</h1>
+    <p class="max-w-2xl text-slate-300">
+      Independent projects built to explore ideas, test tools, and improve craft.
+    </p>
+  </section>
+  <section class="mt-8 grid gap-5">
+    {projects.map((project) => (
+      <ProjectCard
+        title={project.data.title}
+        summary={project.data.summary}
+        tech={project.data.tech}
+        href={`/projects/${contentSlug(project.id)}`}
+        githubUrl={project.data.githubUrl}
+        featured={project.data.featured}
+      />
+    ))}
+  </section>
+</BaseLayout>

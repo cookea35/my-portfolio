@@ -1,5 +1,6 @@
 ---
 title: "Developer Portfolio Site"
+category: "personal"
 summary: "A fast static portfolio and resume site generated with Astro and Markdown content collections."
 description: "This project demonstrates a maintainable content workflow for project showcases while keeping deployment cost at zero through GitHub Pages."
 tech:
