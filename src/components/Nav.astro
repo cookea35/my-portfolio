@@ -6,7 +6,16 @@ import { siteConfig } from "@/config/site";
   <div class="container flex items-center justify-between py-5">
     <a href="/" class="font-semibold tracking-wide text-slate-100">{siteConfig.name}</a>
     <nav class="flex items-center gap-5 text-sm text-slate-300">
-      <a href="/projects">Projects</a>
+      <details class="group relative">
+        <summary class="list-none cursor-pointer select-none hover:text-slate-100 [&::-webkit-details-marker]:hidden">
+          Projects
+        </summary>
+        <div class="absolute left-0 top-7 z-20 min-w-44 rounded-md border border-slate-700 bg-slate-900 p-2 shadow-lg">
+          <a class="block rounded px-2 py-1 hover:bg-slate-800 hover:text-slate-100" href="/projects">All Projects</a>
+          <a class="mt-1 block rounded px-2 py-1 hover:bg-slate-800 hover:text-slate-100" href="/projects/personal">Personal</a>
+          <a class="mt-1 block rounded px-2 py-1 hover:bg-slate-800 hover:text-slate-100" href="/projects/professional">Professional</a>
+        </div>
+      </details>
       <a href="/about">About</a>
       {siteConfig.enableBlog && <a href="/blog">Blog</a>}
       <a href={siteConfig.githubUrl} target="_blank" rel="noreferrer">GitHub</a>
